@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="text_bottom">#5423a8</color>
+    <color name="ripple_effect">#d11398</color>
+    <color name="button_sign_in_solid">#5e0523</color>
+    <color name="button_sign_in_stroke">#bfa1ab</color>
+    <color name="button_register_solid">#e3cf34</color>
+    <color name="button_register_stroke">#c2b025</color>
+</resources>

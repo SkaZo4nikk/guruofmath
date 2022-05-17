@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "900790893145",
+    "firebase_url": "https://guru-of-math-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "guru-of-math",
+    "storage_bucket": "guru-of-math.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900790893145:android:38b461fa1cadf3d55b8f48",
+        "android_client_info": {
+          "package_name": "com.example.guruofmath"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900790893145-34g6su72ftbg5g3d8bfiu2mmkbrde6ne.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9_srrXsGGiA4DvjE4BCnjWjpoawaAYi8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "900790893145-34g6su72ftbg5g3d8bfiu2mmkbrde6ne.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
