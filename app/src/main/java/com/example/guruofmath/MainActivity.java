@@ -26,10 +26,10 @@ import com.example.guruofmath.Models.User;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button buttonSignIn, buttonRegister;
-    FirebaseAuth auth; //авторизация
-    FirebaseDatabase db; //подключение к db
-    DatabaseReference users; //работа с табличками dp
+    private Button buttonSignIn, buttonRegister;
+    private FirebaseAuth auth; //авторизация
+    private FirebaseDatabase db; //подключение к db
+    private DatabaseReference users; //работа с табличками dp
 
     RelativeLayout root;
 
@@ -85,12 +85,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
                 if(TextUtils.isEmpty(email.getText().toString())){
-                    Snackbar.make(root, "Введите вашу почту", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(root, "Введите вашу почту", Snackbar.LENGTH_LONG).show();
                     return;
                 }
 
                 if(password.getText().toString().length() < 5){
-                    Snackbar.make(root, "Введите пароль, больше 5 символов", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(root, "Введите пароль, больше 5 символов", Snackbar.LENGTH_LONG).show();
                     return;
                 }
 
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Snackbar.make(root, "Ошибка авторизации. " + e.getMessage(), Snackbar.LENGTH_SHORT).show();
+                                Snackbar.make(root, "Ошибка авторизации. " + e.getMessage(), Snackbar.LENGTH_LONG).show();
                             }
                         });
             }
@@ -137,17 +137,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
                 if(TextUtils.isEmpty(email.getText().toString())){
-                    Snackbar.make(root, "Введите вашу почту", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(root, "Введите вашу почту", Snackbar.LENGTH_LONG).show();
                     return;
                 }
 
                 if(TextUtils.isEmpty(name.getText().toString())){
-                    Snackbar.make(root, "Введите ваше имя", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(root, "Введите ваше имя", Snackbar.LENGTH_LONG).show();
                     return;
                 }
 
                 if(password.getText().toString().length() < 5){
-                    Snackbar.make(root, "Введите пароль, больше 5 символов", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(root, "Введите пароль, больше 5 символов", Snackbar.LENGTH_LONG).show();
                     return;
                 }
 
@@ -158,15 +158,16 @@ public class MainActivity extends AppCompatActivity {
                             public void onSuccess(AuthResult authResult) {
                                 User user = new User();
                                 user.setEmail(email.getText().toString());
-                                user.setPass(name.getText().toString());
-                                user.setName(password.getText().toString());
+                                user.setPass(password.getText().toString());
+                                user.setName(name.getText().toString());
+                                user.setScore("0");
 
                                 users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .setValue(user)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void unused) {
-                                                Snackbar.make(root, "Пользователь добавлен", Snackbar.LENGTH_SHORT).show();
+                                                Snackbar.make(root, "Пользователь добавлен", Snackbar.LENGTH_LONG).show();
                                             }
                                         });
                             }

@@ -1,14 +1,15 @@
 package com.example.guruofmath.Models;
 
 public class User {
-    private String name, email, pass;
+    private String name, email, pass, score;
 
     public User(){}
 
-    public User(String name, String email, String pass) {
+    public User(String name, String email, String pass, String score) {
         this.name = name;
         this.email = email;
         this.pass = pass;
+        this.score = score;
     }
 
     public String getName() {
@@ -34,4 +35,10 @@ public class User {
     public void setPass(String pass) {
         this.pass = pass;
     }
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) { this.score = score;}
 }
