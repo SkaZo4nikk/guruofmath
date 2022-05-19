@@ -123,8 +123,6 @@ public class MathTest extends AppCompatActivity {
                         } else{
                             System.out.println("Рекорд не побит");
                         }
-
-
                     }
 
                     @Override
