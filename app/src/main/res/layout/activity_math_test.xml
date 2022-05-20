@@ -1,80 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/image"
     android:layout_height="match_parent"
+    android:background="@drawable/god1"
     tools:context=".MathTest">
 
-    <Button
-        android:id="@+id/FirstAnswer"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginBottom="280dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/SecondAnswer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginBottom="212dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/ScorePoints"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:layout_height="wrap_content"
+            android:text="Текущий счет: 100"
+            android:textAlignment="center" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/ThirdAnswer"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginBottom="140dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="5dp"
+        android:gravity="right">
 
-    <Button
-        android:id="@+id/FourthAnswer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginBottom="72dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/HealthPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="Жизни: 3" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/ScorePoints"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="5dp"
+        android:gravity="left">
 
-    <TextView
-        android:id="@+id/HealthPoint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/TimeOfQ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Время: 30"
+            android:layout_marginStart="10dp"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/SolveExample"
-        android:layout_width="203dp"
-        android:layout_height="41dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.355" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="11 - 2"
+        android:layout_marginTop="300dp"
+        android:layout_centerHorizontal="true" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/SolveExample"
+        android:layout_marginTop="210dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="6dp"
+        android:orientation="vertical">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginBottom="4dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/FirstAnswer"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/test"
+                android:layout_height="match_parent"
+                android:text="356" />
+
+            <Button
+                android:id="@+id/SecondAnswer"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/test"
+                android:layout_height="match_parent"
+                android:text="-354" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/ThirdAnswer"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/button_answer"
+                android:layout_height="match_parent"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/FourthAnswer"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/button_answer"
+                android:layout_height="match_parent"
+                android:text="10" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

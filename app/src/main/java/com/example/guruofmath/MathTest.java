@@ -4,8 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,20 +26,24 @@ import java.util.Random;
 
 public class MathTest extends AppCompatActivity {
 
-    private TextView mSolveExample, mScorePoints, mHealthPoint;
-    private int mScore;
+    private TextView mSolveExample, mScorePoints, mHealthPoint, mTimeOfQ;
+    int mScore;
     private int mLife = 3;
     private Button FirstButton, SecondButton, ThirdButton, FourthButton;
     private int ans;
     private FirebaseDatabase db; //подключение к db
     private DatabaseReference users; //работа с табличками dp
     private String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    //RelativeLayout layout;
+    //private int imageID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math_test);
 
+        //layout = findViewById(R.id.image);
+        mTimeOfQ = findViewById(R.id.TimeOfQ);
         mSolveExample = findViewById(R.id.SolveExample);
         mScorePoints = findViewById(R.id.ScorePoints);
         mHealthPoint = findViewById(R.id.HealthPoint);
@@ -50,28 +58,41 @@ public class MathTest extends AppCompatActivity {
         db = FirebaseDatabase.getInstance(); //подключение к dp
         users = db.getReference("Users"); //работа с табличкой Users
 
+        timer.start();
+
         MathQuestion();
         CreateButtons();
 
         FirstButton.setOnClickListener(v->{
+            //imageID=getResources().getIdentifier("com.example.mathguru:drawable/god2",null,null);
+            //.setImageResource(imageID);
+            //layout.setBackground(R.drawable.);
+            timer.cancel();
+            timer.start();
             CheckAns(FirstButton.getText().toString());
             MathQuestion();
             CreateButtons();
         });
 
         SecondButton.setOnClickListener(v->{
+            timer.cancel();
+            timer.start();
             CheckAns(SecondButton.getText().toString());
             MathQuestion();
             CreateButtons();
         });
 
         ThirdButton.setOnClickListener(v->{
+            timer.cancel();
+            timer.start();
             CheckAns(ThirdButton.getText().toString());
             MathQuestion();
             CreateButtons();
         });
 
         FourthButton.setOnClickListener(v->{
+            timer.cancel();
+            timer.start();
             CheckAns(FourthButton.getText().toString());
             MathQuestion();
             CreateButtons();
@@ -83,18 +104,18 @@ public class MathTest extends AppCompatActivity {
         int a = rd.nextInt(30) + 1;
         int b = rd.nextInt(30) + 1;
         ans = 0;
-        char oper = '0';
+        String oper = "";
         switch (rd.nextInt(3)) {
             case 0:
-                oper = '+';
+                oper = "+";
                 ans = a + b;
                 break;
             case 1:
-                oper = '*';
+                oper = "*";
                 ans = a * b;
                 break;
             case 2:
-                oper = '-';
+                oper = "-";
                 ans = a - b;
                 break;
         }
@@ -102,6 +123,7 @@ public class MathTest extends AppCompatActivity {
     }
 
     private void CheckAns(String userAns){
+
         if(userAns.equals(String.valueOf(ans))){
             mScore++;
             mScorePoints.setText("Текущий счет: " + mScore);
@@ -111,6 +133,8 @@ public class MathTest extends AppCompatActivity {
                 mHealthPoint.setText("Жизни: " + mLife);
             } else{
                 users = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
+
+                timer.cancel();
 
                 users.child("score").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -131,7 +155,9 @@ public class MathTest extends AppCompatActivity {
                     }
                 });
 
-                startActivity(new Intent(MathTest.this, ScoreBoard.class));
+                Intent intent = new Intent(MathTest.this, ScoreBoard.class);
+                intent.putExtra("CurrentScore", mScore);
+                startActivity(intent);
                 finish();
             }
         }
@@ -146,4 +172,18 @@ public class MathTest extends AppCompatActivity {
         ThirdButton.setText(String.valueOf(list.get(2)));
         FourthButton.setText(String.valueOf(list.get(3)));
     }
+
+    CountDownTimer timer = new CountDownTimer(5000, 1000) {
+        @Override
+        public void onTick(long millisUntilFinished) {
+            mTimeOfQ.setText("Время: " + (millisUntilFinished / 1000 + 1));
+        }
+
+        @Override
+        public void onFinish() {
+            mLife = 0;
+            CheckAns("");
+        }
+    };
+
 }
