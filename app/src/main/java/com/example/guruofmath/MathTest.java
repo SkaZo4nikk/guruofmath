@@ -34,15 +34,15 @@ public class MathTest extends AppCompatActivity {
     private FirebaseDatabase db; //подключение к db
     private DatabaseReference users; //работа с табличками dp
     private String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-    //RelativeLayout layout;
-    //private int imageID;
+    RelativeLayout layout;
+    private int imageID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math_test);
 
-        //layout = findViewById(R.id.image);
+        layout = findViewById(R.id.image);
         mTimeOfQ = findViewById(R.id.TimeOfQ);
         mSolveExample = findViewById(R.id.SolveExample);
         mScorePoints = findViewById(R.id.ScorePoints);
@@ -64,9 +64,8 @@ public class MathTest extends AppCompatActivity {
         CreateButtons();
 
         FirstButton.setOnClickListener(v->{
-            //imageID=getResources().getIdentifier("com.example.mathguru:drawable/god2",null,null);
-            //.setImageResource(imageID);
-            //layout.setBackground(R.drawable.);
+            imageID=getResources().getIdentifier("com.example.guruofmath:drawable/god2",null,null);
+            layout.setBackgroundResource(imageID);
             timer.cancel();
             timer.start();
             CheckAns(FirstButton.getText().toString());
