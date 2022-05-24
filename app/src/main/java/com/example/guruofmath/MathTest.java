@@ -64,8 +64,6 @@ public class MathTest extends AppCompatActivity {
         CreateButtons();
 
         FirstButton.setOnClickListener(v->{
-            imageID=getResources().getIdentifier("com.example.guruofmath:drawable/god2",null,null);
-            layout.setBackgroundResource(imageID);
             timer.cancel();
             timer.start();
             CheckAns(FirstButton.getText().toString());
@@ -139,12 +137,11 @@ public class MathTest extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String highScore = snapshot.getValue().toString();
-                        System.out.println(highScore);
                         if(mScore > Integer.parseInt(highScore)){
-                            users.child("score").setValue(String.valueOf(mScore));
-                            System.out.println("Рекорд побит");
+                            users.child("score").setValue(mScore);
+
                         } else{
-                            System.out.println("Рекорд не побит");
+
                         }
                     }
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/image"
-    android:background="@drawable/god1"
+    android:background="@drawable/mathtest"
     tools:context=".MathTest">
 
     <LinearLayout
@@ -62,17 +62,17 @@
         android:id="@+id/SolveExample"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="45sp"
-        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="300dp"
-        android:text="11 - 2" />
+        android:text="11 - 2"
+        android:textColor="@color/black"
+        android:textSize="45sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/SolveExample"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="175dp"
         android:layout_marginStart="6dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="6dp"
@@ -116,7 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_marginEnd="4dp"
-                android:background="@drawable/button_answer"
+                android:background="@drawable/test"
                 android:layout_height="match_parent"
                 android:text="2" />
 
@@ -125,7 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_marginStart="4dp"
-                android:background="@drawable/button_answer"
+                android:background="@drawable/test"
                 android:layout_height="match_parent"
                 android:text="10" />
         </LinearLayout>
